@@ -1,30 +1,33 @@
 
 
 // this are the two disks
-outerDisk = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-innerDisk = "lnougzcqmihfvxkjwbarydepts"
+let outerDisk = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+let innerDisk = "lnougzcqmihfvxkjwbarydepts"
 
 
-// the secrete key to exchange between parties
-keyLetter = 'f'
 
-//the messages
+
+
+
+
 // TODO: using DOM to recieve the message from the HTML form when form is ready
-message = "The element associated with the specified key or undefined if the key can not be found in the Map object"
-toDecrypt = 'HpfmH mjmwmbp SrZggMxnqsauoW fpme merV ZgnwkybyCxv rxqB tn gpxkjapkx aj ubk ykm vhp ptu fk jtgpx ap ubk ehs tfrkvu'
+
+let encryptedMessage = ''
+let decryptedMessage = ''
+
+
+
 
 
 //the final results
-encryptedMessage = ''
-decryptedMessage = ''
 
 
 
 // transaltes or "rotates" the outer disks to map with the inner one 
 function map(keyLetter, outerDiskKey) {
-    counterForMap = 0
-    checkOuter = false
-    checkInner = false
+    let counterForMap = 0
+    let checkOuter = false
+    let checkInner = false
     decryptionMap = new Map()
     encryptionMap = new Map()
         
@@ -69,7 +72,7 @@ function getRandomInt(max) {
 function encrypt(message, keyLetter){
     
     message = message.toUpperCase()
-    initialChar =  outerDisk.charAt(getRandomInt(outerDisk.length))
+   let initialChar =  outerDisk.charAt(getRandomInt(outerDisk.length))
 
     encryptedMessage += initialChar.toUpperCase() 
     map(keyLetter,initialChar)
@@ -101,7 +104,6 @@ function encrypt(message, keyLetter){
 
 // accepts the encrypted message by the above functions and returns the original message 
 function decrypt(encryptedMessage, keyLetter) {
-    // i don't know why this works but please don't touch it
     counter = -1
     while (counter <= encryptedMessage.length-2) {
         
@@ -118,5 +120,44 @@ function decrypt(encryptedMessage, keyLetter) {
     }
     return decryptedMessage
 }
+mes = ''
+ 
 
+
+document.querySelector('.encrypt').addEventListener('click', function(){
+    // the secrete key to exchange between parties
+    const keyLetter = document.querySelector('.keyLetter').value
+    
+    //the messages
+    const message = document.querySelector('.encryptInput').value
+    
+
+ 
+    if (mes === '' && keyLetter.length ===1) {
+        mes = encrypt(message,keyLetter)
+        
+        document.querySelector('.encryptedMessage').textContent = mes
+    }
+    else{
+
+    }
+})
+
+document.querySelector('.decrypt').addEventListener('click', function(){
+    // the secrete key to exchange between parties
+    const keyLetter = document.querySelector('.keyLetter').value
+    
+    //the message
+    const message = document.querySelector('.encryptInput').value
+    
+
+    if (mes === '' && keyLetter.length ===1) {
+        mes = decrypt(message,keyLetter)
+        
+        document.querySelector('.encryptedMessage').textContent = mes
+    }
+    else{
+        
+    }
+})
 
