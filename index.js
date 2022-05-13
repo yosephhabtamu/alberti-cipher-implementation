@@ -121,9 +121,7 @@ document.querySelector('.encrypt').addEventListener('click', function(){
         
         document.querySelector('.encryptedMessage').textContent = mes
     }
-    else{
-
-    }
+   
 })
 
 document.querySelector('.decrypt').addEventListener('click', function(){
@@ -139,8 +137,6 @@ document.querySelector('.decrypt').addEventListener('click', function(){
         
         document.querySelector('.encryptedMessage').textContent = mes
     }
-    else{
-        
-    }
+       
 })
 
