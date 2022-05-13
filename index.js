@@ -3,25 +3,8 @@
 // this are the two disks
 let outerDisk = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 let innerDisk = "lnougzcqmihfvxkjwbarydepts"
-
-
-
-
-
-
-
-// TODO: using DOM to recieve the message from the HTML form when form is ready
-
 let encryptedMessage = ''
 let decryptedMessage = ''
-
-
-
-
-
-//the final results
-
-
 
 // transaltes or "rotates" the outer disks to map with the inner one 
 function map(keyLetter, outerDiskKey) {
